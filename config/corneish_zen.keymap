@@ -3,12 +3,21 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/pointing.h>
 
+// 定義層級名稱（Layer Names）
+#define QWERTY 0
+#define NUM    1
+#define SYM    2
+#define NAV    3
+#define MOUSE  4
+#define TMUX   5
+
 / {
-  chosen {
-    zmk,matrix_transform = &default_transform;
-    //zmk,matrix_transform = &five_column_transform;
-  };
-  macros {
+    chosen {
+        zmk,matrix_transform = &default_transform;
+        // zmk,matrix_transform = &five_column_transform;
+    };
+
+    macros {
         tmux_cmd: tmux_cmd {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
@@ -22,6 +31,7 @@
                 , <&macro_tap &kp MACRO_PLACEHOLDER>;
         };
     };
+
     behaviors {
         hml: home_row_mod_left {
             compatible = "zmk,behavior-hold-tap";
@@ -46,12 +56,14 @@
             hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38>; // 左半部所有鍵位索引
             hold-trigger-on-release;
         };
+
         smart_caps: smart_caps {
             compatible = "zmk,behavior-caps-word";
             #binding-cells = <0>;
             continue-list = <UNDERSCORE MINUS BSPC DELETE>;
         };
     };
+
     combos {
         compatible = "zmk,combos";
 
@@ -99,68 +111,68 @@
     };
 };
 
-
 / {
-        keymap {
-                compatible = "zmk,keymap";
+    keymap {
+        compatible = "zmk,keymap";
 
-                default_layer {
-                        label = "QWERTY";
-                        bindings = <
-   &none     &kp Q         &kp W        &kp E        &kp R         &kp T       &kp Y     &kp U         &kp I           &kp O         &kp P            &none    
-   &none     &hml LSHFT A  &hml LALT S  &hml LCMD D  &hml LCTRL F  &kp G       &kp H     &hmr RCTRL J  &hmr RCMD K     &hmr RALT L   &hmr RSHFT SEMI  &none    
-   &none     &kp Z         &kp X        &kp C        &kp V         &kp B       &kp N     &kp M         &kp COMMA       &kp DOT       &kp FSLH         &none    
-                     &lt 1 CAPS     &lt 2 TAB    &kp  SPACE   &kp RET      &lt 3 BACKSPACE       &lt 4 ESC   
-                        >;
-                };
-                num_layer {
-                        label = "NUMBER";
-
-                        bindings = <
-   &none    &kp N1    &kp N2    &kp N3    &kp N4    &kp N5    &kp N6                        &kp N7    &kp N8    &kp N9    &kp N0      &none     
-   &none    &kp F1    &kp F2    &kp F3    &kp F4    &kp F5    &kp C_VOL_UP                  &kp N4    &kp N5    &kp N6    &none    &none     
-   &none    &kp F6    &kp F7    &kp F8    &kp F9    &kp F10   &kp C_VOL_DN          &none   &kp N1    &kp N2    &kp N3    &none
-                            &trans    &kp F11    &kp F12     &kp DEL                       &kp N0    &none  
-                        >;
-                };
-
-                symbol_layer {
-                        label = "SYMBOL";
-                        bindings = <
-   &none  &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT   &kp CARET  &kp AMPS   &kp KP_MULTIPLY &kp LPAR  &kp RPAR  &none
-   &none  &kp TILDE &kp GRAVE &trans    &trans    &trans      &kp BSLH   &kp MINUS  &kp EQUAL       &kp LBKT  &kp RBKT  &none
-   &none  &kp LG(Z) &kp LG(X) &kp LG(C) &kp LG(V) &kp LG(Y)   &kp PIPE   &kp UNDER  &kp PLUS        &kp LBRC  &kp RBRC  &none
-                          &none  &trans   &none   &kp BSPC   &kp DQT    &kp SQT
-                        >;
-                };
-                
-                nav_layer {
-                        label = "NAV";
-                        bindings = <
-   &trans    &trans    &trans    &trans    &trans    &trans    &trans    &kp PG_UP &kp UP    &kp PG_DN &trans    &trans    
-   &trans    &trans    &trans    &trans    &trans    &trans    &kp HOME  &kp LEFT  &kp DOWN  &kp RIGHT &kp END   &trans    
-   &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans    
-                          &kp LS(LG(SPACE))    &mo 5    &trans    &trans    &trans    &trans  
-                        >;
-                };
-                mouse_layer {
-                        label = "MOUSE";
-                        bindings = <
-   &trans    &bt BT_CLR   &trans       &trans       &trans       &trans          &trans    &mkp LCLK         &mmv MOVE_UP      &mkp RCLK         &trans    &trans    
-   &trans    &trans       &mkp LCLK    &mkp MCLK    &mkp RCLK    &trans          &trans    &mmv MOVE_LEFT    &mmv MOVE_DOWN    &mmv MOVE_RIGHT        &trans    &trans    
-   &trans    &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &trans    &trans            &mkp MCLK         &trans            &trans    &trans    
-                          &kp LS(LG(N4))    &kp LS(LG(N3))    &trans    &trans    &trans    &trans  
-                        >;
-                };
-                tmux_layer {
-            label = "TMUX";
+        default_layer {
+            label = "QWERTY";
             bindings = <
-    &none    &tmux_cmd N1   &tmux_cmd N2   &tmux_cmd N3   &tmux_cmd N4   &tmux_cmd N5     &tmux_cmd N6   &tmux_cmd N7         &tmux_cmd UP        &tmux_cmd N9          &tmux_cmd N0   &none
-    &none    &tmux_cmd DQT  &tmux_cmd PRCNT&none          &none          &none            &none          &tmux_cmd LEFT       &tmux_cmd DOWN      &tmux_cmd RIGHT       &none          &none
-    &none    &tmux_cmd Z    &tmux_cmd X    &tmux_cmd C    &none          &none            &none          &tmux_cmd N          &none                &tmux_cmd P          &none          &none
-                                           &trans         &trans         &trans           &trans         &trans               &trans
+    &none  &kp Q        &kp W        &kp E        &kp R        &kp T     &kp Y   &kp U        &kp I        &kp O        &kp P           &none    
+    &none  &hml LCMD A  &hml LCTRL S &hml LALT D  &hml LSHFT F &kp G     &kp H   &hmr RSHFT J &hmr RALT K  &hmr RCTRL L &hmr RCMD SEMI  &none    
+    &none  &kp Z        &kp X        &kp C        &kp V        &kp B     &kp N   &kp M        &kp COMMA    &kp DOT      &kp FSLH        &none    
+                                     &lt NUM CAPS &lt SYM TAB  &kp SPACE &kp RET &lt NAV BACKSPACE         &lt MOUSE ESC   
             >;
         };
-                
+
+        num_layer {
+            label = "NUMBER";
+            bindings = <
+    &none  &kp N1  &kp N2  &kp N3  &kp N4   &kp N5   &kp N6        &kp N7  &kp N8  &kp N9  &kp N0  &none     
+    &none  &kp F1  &kp F2  &kp F3  &kp F4   &kp F5   &kp C_VOL_UP  &kp N4  &kp N5  &kp N6  &none   &none     
+    &none  &kp F6  &kp F7  &kp F8  &kp F9   &kp F10  &kp C_VOL_DN  &none   &kp N1  &kp N2  &kp N3  &none
+                           &trans  &kp F11  &kp F12  &kp DEL       &kp N0  &none  
+            >;
         };
+
+        symbol_layer {
+            label = "SYMBOL";
+            bindings = <
+    &none  &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT   &kp CARET  &kp AMPS   &kp KP_MULTIPLY &kp LPAR  &kp RPAR  &none
+    &none  &kp TILDE &kp GRAVE &trans    &trans    &trans      &kp BSLH   &kp MINUS  &kp EQUAL       &kp LBKT  &kp RBKT  &none
+    &none  &kp LG(Z) &kp LG(X) &kp LG(C) &kp LG(V) &kp LG(Y)   &kp PIPE   &kp UNDER  &kp PLUS        &kp LBRC  &kp RBRC  &none
+                               &none     &trans    &none       &kp BSPC   &kp DQT    &kp SQT
+            >;
+        };
+
+        nav_layer {
+            label = "NAV";
+            bindings = <
+    &trans  &trans             &trans    &trans  &trans  &trans  &trans    &kp PG_UP &kp UP    &kp PG_DN &trans  &trans    
+    &trans  &trans             &trans    &trans  &trans  &trans  &kp HOME  &kp LEFT  &kp DOWN  &kp RIGHT &kp END &trans    
+    &trans  &trans             &trans    &trans  &trans  &trans  &trans    &trans    &trans    &trans    &trans  &trans    
+            &kp LS(LG(SPACE))  &mo TMUX  &trans  &trans  &trans  &trans  
+            >;
+        };
+
+        mouse_layer {
+            label = "MOUSE";
+            bindings = <
+    &trans  &bt BT_CLR    &trans        &trans        &trans        &trans          &trans  &mkp LCLK       &mmv MOVE_UP    &mkp RCLK        &trans  &trans    
+    &trans  &trans        &mkp LCLK     &mkp MCLK     &mkp RCLK     &trans          &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans  &trans    
+    &trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &trans  &trans          &mkp MCLK       &trans           &trans  &trans    
+                                        &kp LS(LG(N4)) &kp LS(LG(N3)) &trans        &trans  &trans          &trans  
+            >;
+        };
+
+        tmux_layer {
+            label = "TMUX";
+            bindings = <
+    &none  &tmux_cmd N1   &tmux_cmd N2   &tmux_cmd N3  &tmux_cmd N4  &tmux_cmd N5  &tmux_cmd N6  &tmux_cmd N7    &tmux_cmd UP    &tmux_cmd N9     &tmux_cmd N0   &none
+    &none  &tmux_cmd DQT  &tmux_cmd PRCNT&none         &none         &none         &none         &tmux_cmd LEFT  &tmux_cmd DOWN  &tmux_cmd RIGHT  &none          &none
+    &none  &tmux_cmd Z    &tmux_cmd X    &tmux_cmd C   &none         &none         &none         &tmux_cmd N     &none           &tmux_cmd P      &none          &none
+                                         &trans        &trans        &trans        &trans        &trans          &trans
+            >;
+        };
+    };
 };
