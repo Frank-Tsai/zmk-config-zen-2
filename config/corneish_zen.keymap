@@ -195,10 +195,10 @@
         tmux_layer {
             label = "TMUX";
             bindings = <
-    &none  &tmux_cmd N1   &tmux_cmd N2   &tmux_cmd N3  &tmux_cmd N4  &tmux_cmd N5  &tmux_cmd N6  &tmux_cmd N7    &tmux_cmd UP    &tmux_cmd N9     &tmux_cmd N0   &none
-    &none  &tmux_cmd DQT  &tmux_cmd PRCNT&none         &none         &none         &none         &tmux_cmd LEFT  &tmux_cmd DOWN  &tmux_cmd RIGHT  &none          &none
-    &none  &tmux_cmd Z    &tmux_cmd X    &tmux_cmd C   &none         &none         &none         &tmux_cmd N     &none           &tmux_cmd P      &none          &none
-                                         &trans        &trans        &trans        &trans        &trans          &trans
+    &none  &tmux_cmd N1   &tmux_cmd N2   &tmux_cmd N3  &tmux_cmd N4   &tmux_cmd N5   &tmux_cmd N6  &tmux_cmd N7    &tmux_cmd UP    &tmux_cmd N9     &tmux_cmd N0   &none
+    &none  &tmux_cmd DQT  &tmux_cmd PRCNT&none         &none          &none          &none         &tmux_cmd LEFT  &tmux_cmd DOWN  &tmux_cmd RIGHT  &none          &none
+    &none  &tmux_cmd Z    &tmux_cmd X    &tmux_cmd C   &tmux_cmd RBKT &tmux_cmd RBKT &none         &tmux_cmd N     &none           &tmux_cmd P      &none          &none
+                                         &trans        &trans         &trans         &trans        &trans          &trans
             >;
         };
     };
