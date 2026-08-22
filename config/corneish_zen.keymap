@@ -4,12 +4,14 @@
 #include <dt-bindings/zmk/pointing.h>
 
 // 定義層級名稱（Layer Names）
-#define QWERTY 0
-#define NUM    1
-#define SYM    2
-#define NAV    3
-#define MOUSE  4
-#define TMUX   5
+#define MAC    0
+#define WIN       1
+#define NUM       2
+#define SYM       3
+#define NAV       4
+#define MOUSE     5
+#define WIN_MOUSE 6
+#define TMUX      7
 
 / {
     chosen {
@@ -115,13 +117,25 @@
     keymap {
         compatible = "zmk,keymap";
 
+        // Layer 0: Mac 預設層（觸發 MOUSE 層）
         default_layer {
-            label = "QWERTY";
+            label = "MAC";
             bindings = <
-    &none  &kp Q        &kp W        &kp E        &kp R        &kp T     &kp Y   &kp U        &kp I        &kp O        &kp P           &none    
-    &none  &hml LCMD A  &hml LCTRL S &hml LALT D  &hml LSHFT F &kp G     &kp H   &hmr RSHFT J &hmr RALT K  &hmr RCTRL L &hmr RCMD SEMI  &none    
-    &none  &kp Z        &kp X        &kp C        &kp V        &kp B     &kp N   &kp M        &kp COMMA    &kp DOT      &kp FSLH        &none    
-                                     &lt NUM CAPS &lt SYM TAB  &kp SPACE &kp RET &lt NAV BACKSPACE         &lt MOUSE ESC   
+    &tog WIN  &kp Q        &kp W        &kp E        &kp R        &kp T     &kp Y   &kp U        &kp I        &kp O        &kp P           &none    
+    &none     &hml LCTRL A &hml LALT S  &hml LCMD D  &hml LSHFT F &kp G     &kp H   &hmr RSHFT J &hmr RCMD K  &hmr RALT L  &hmr RCTRL SEMI &none    
+    &none     &kp Z        &kp X        &kp C        &kp V        &kp B     &kp N   &kp M        &kp COMMA    &kp DOT      &kp FSLH        &none    
+                                        &lt NUM CAPS &lt SYM TAB  &kp SPACE &kp RET &lt NAV BACKSPACE         &lt MOUSE ESC   
+            >;
+        };
+
+        // Layer 1: Windows 預設層（觸發 WIN_MOUSE 層）
+        win_layer {
+            label = "WIN";
+            bindings = <
+    &tog WIN  &kp Q        &kp W        &kp E        &kp R        &kp T     &kp Y   &kp U        &kp I        &kp O        &kp P           &none    
+    &none     &hml LGUI A  &hml LALT S  &hml LCTRL D &hml LSHFT F &kp G     &kp H   &hmr RSHFT J &hmr RCTRL K &hmr RALT L  &hmr RGUI SEMI  &none    
+    &none     &kp Z        &kp X        &kp C        &kp V        &kp B     &kp N   &kp M        &kp COMMA    &kp DOT      &kp FSLH        &none    
+                                        &lt NUM CAPS &lt SYM TAB  &kp SPACE &kp RET &lt NAV BACKSPACE         &lt WIN_MOUSE ESC   
             >;
         };
 
@@ -129,8 +143,8 @@
             label = "NUMBER";
             bindings = <
     &none  &kp N1  &kp N2  &kp N3  &kp N4   &kp N5   &kp N6        &kp N7  &kp N8  &kp N9  &kp N0  &none     
-    &none  &kp F1  &kp F2  &kp F3  &kp F4   &kp F5   &kp C_VOL_UP  &kp N4  &kp N5  &kp N6  &none   &none     
-    &none  &kp F6  &kp F7  &kp F8  &kp F9   &kp F10  &kp C_VOL_DN  &none   &kp N1  &kp N2  &kp N3  &none
+    &none  &kp F1  &kp F2  &kp F3  &kp F4   &kp F5   &none         &kp N4  &kp N5  &kp N6  &none   &none     
+    &none  &kp F6  &kp F7  &kp F8  &kp F9   &kp F10  &none         &none   &kp N1  &kp N2  &kp N3  &none
                            &trans  &kp F11  &kp F12  &kp DEL       &kp N0  &none  
             >;
         };
@@ -148,13 +162,14 @@
         nav_layer {
             label = "NAV";
             bindings = <
-    &trans  &trans             &trans    &trans  &trans  &trans  &trans    &kp PG_UP &kp UP    &kp PG_DN &trans  &trans    
-    &trans  &trans             &trans    &trans  &trans  &trans  &kp HOME  &kp LEFT  &kp DOWN  &kp RIGHT &kp END &trans    
-    &trans  &trans             &trans    &trans  &trans  &trans  &trans    &trans    &trans    &trans    &trans  &trans    
+    &trans  &trans             &trans    &trans  &trans  &trans  &kp C_VOL_UP   &kp PG_UP &kp UP    &kp PG_DN &trans  &trans    
+    &trans  &trans             &trans    &trans  &trans  &trans  &kp C_VOL_DN   &kp LEFT  &kp DOWN  &kp RIGHT &trans &trans    
+    &trans  &trans             &trans    &trans  &trans  &trans  &kp C_MUTE     &kp HOME  &trans    &kp END   &trans  &trans    
             &kp LS(LG(SPACE))  &mo TMUX  &trans  &trans  &trans  &trans  
             >;
         };
 
+        // Layer 5: Mac 滑鼠與截圖層
         mouse_layer {
             label = "MOUSE";
             bindings = <
@@ -165,6 +180,18 @@
             >;
         };
 
+        // Layer 6: Windows 滑鼠與截圖層
+        win_mouse_layer {
+            label = "WIN_MOUSE";
+            bindings = <
+    &trans  &bt BT_CLR    &trans        &trans        &trans        &trans          &trans  &mkp LCLK       &mmv MOVE_UP    &mkp RCLK        &trans  &trans    
+    &trans  &trans        &mkp LCLK     &mkp MCLK     &mkp RCLK     &trans          &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans  &trans    
+    &trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &trans  &trans          &mkp MCLK       &trans           &trans  &trans    
+                                        &kp LG(LS(S)) &kp PSCRN     &trans          &trans  &trans          &trans  
+            >;
+        };
+
+        // Layer 7: Tmux 共用層
         tmux_layer {
             label = "TMUX";
             bindings = <
