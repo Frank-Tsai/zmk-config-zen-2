@@ -167,7 +167,32 @@
             time-to-max-speed-ms = <0>;
             acceleration-exponent = <0>;
         };
-       
+        // num word
+        // 1. 定義 Num Word 行為
+        num_word: num_word {
+            compatible = "zmk,behavior-caps-word";
+            #binding-cells = <0>;
+            continue-list = <N1 N2 N3 N4 N5 N6 N7 N8 N9 N0 DOT COMMA MINUS PLUS FSLH EQUAL BSPC DELETE>;
+            layers = <NUM>;
+        };
+
+        // 2. 定義 Tap Dance：單擊輸出 CAPS，雙擊啟動 Num Word
+        td_caps_numword: td_caps_numword {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp CAPS>, <&num_word>;
+        };
+
+        // 3. 定義複合 Hold-Tap：長按切換到 NUM 層，單擊/雙擊交給 Tap Dance
+        lt_num_td: lt_num_td {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <150>;
+            bindings = <&mo>, <&td_caps_numword>;
+        };
     };
 
     combos {
