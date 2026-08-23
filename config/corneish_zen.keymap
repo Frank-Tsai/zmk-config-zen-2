@@ -78,7 +78,6 @@
             y-input-code = <INPUT_REL_Y>;
             time-to-max-speed-ms = <0>;
             acceleration-exponent = <0>;
-            default-delay-ms = <0>;
         };
 
         // 精準慢速滾輪（Sniper Scroll）
@@ -89,7 +88,6 @@
             y-input-code = <INPUT_REL_WHEEL>;
             time-to-max-speed-ms = <0>;
             acceleration-exponent = <0>;
-            default-delay-ms = <0>;
         };
        
     };
