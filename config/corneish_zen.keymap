@@ -216,7 +216,7 @@
     &tog WIN  &kp Q        &kp W        &kp E        &kp R        &kp T     &kp Y   &kp U        &kp I        &kp O        &kp P           &none    
     &none     &hml LGUI A  &hml LALT S  &hml LCTRL D &hml LSHFT F &kp G     &kp H   &hmr RSHFT J &hmr RCTRL K &hmr RALT L  &hmr RGUI SEMI  &none    
     &none     &kp Z        &kp X        &kp C        &kp V        &kp B     &kp N   &kp M        &kp COMMA    &kp DOT      &kp FSLH        &none    
-                                        &lt NUM CAPS &lt WIN_SYM TAB &kp SPACE &kp RET &lt NAV BACKSPACE      &lt WIN_MOUSE ESC   
+                                        &lt NUM LSHFT &lt WIN_SYM TAB &kp SPACE &kp RET &lt NAV BACKSPACE      &lt WIN_MOUSE ESC   
             >;
         };
 
@@ -268,8 +268,8 @@
         mouse_layer {
             display-name = "MOUSE";
             bindings = <
-    &none   &none         &none         &none         &none         &none           &none   &mkp LCLK          &mmv MOVE_UP    &mkp RCLK            &none   &none    
-    &none   &mo SNIPER    &mkp LCLK     &mkp MCLK     &mkp RCLK     &none           &none   &mmv MOVE_LEFT     &mmv MOVE_DOWN  &mmv MOVE_RIGHT      &none   &none    
+    &none   &none         &none         &mkp MCLK     &none         &none           &none   &mkp LCLK          &mmv MOVE_UP    &mkp RCLK            &none   &none    
+    &none   &none         &mo SNIPER    &mkp LCLK     &mkp RCLK     &none           &none   &mmv MOVE_LEFT     &mmv MOVE_DOWN  &mmv MOVE_RIGHT      &none   &none    
     &none   &none         &none         &none         &none         &none           &none   &msc_slow SCRL_UP  &mkp MCLK       &msc_slow SCRL_DOWN  &none   &none    
                                         &kp LS(LG(N4)) &kp LS(LG(N3)) &trans        &trans  &trans          &trans  
             >;
@@ -279,8 +279,8 @@
         win_mouse_layer {
             display-name = "WIN_MOUSE";
             bindings = <
-    &none   &none         &none         &none         &none         &none           &none   &mkp LCLK          &mmv MOVE_UP    &mkp RCLK            &none   &none    
-    &none   &mo SNIPER    &mkp LCLK     &mkp MCLK     &mkp RCLK     &none           &none   &mmv MOVE_LEFT     &mmv MOVE_DOWN  &mmv MOVE_RIGHT      &none   &none    
+    &none   &none         &none         &mkp MCLK     &none         &none           &none   &mkp LCLK          &mmv MOVE_UP    &mkp RCLK            &none   &none    
+    &none   &none         &mo SNIPER    &mkp LCLK     &mkp RCLK     &none           &none   &mmv MOVE_LEFT     &mmv MOVE_DOWN  &mmv MOVE_RIGHT      &none   &none    
     &none   &none         &none         &none         &none         &none           &none   &msc_slow SCRL_UP  &mkp MCLK       &msc_slow SCRL_DOWN  &none   &none    
                                         &kp LG(LS(S)) &kp PSCRN     &trans          &trans  &trans          &trans  
             >;
