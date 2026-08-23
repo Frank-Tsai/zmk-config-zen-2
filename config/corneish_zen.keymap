@@ -37,12 +37,7 @@
                 , <&macro_tap &kp MACRO_PLACEHOLDER>;
         };
     };
-    zip_sniper: zip_sniper {
-        compatible = "zmk,input-processor-temp-scale";
-        #binding-cells = <0>;
-        scale-factor = <1>;
-        scale-divisor = <4>; /* 速度除以 4，想更慢可改 6 或 8 */
-    };
+    
     behaviors {
         hml: home_row_mod_left {
             compatible = "zmk,behavior-hold-tap";
@@ -74,11 +69,7 @@
             continue-list = <UNDERSCORE MINUS BSPC DELETE>;
         };
 
-        mmv_sniper: mmv_sniper {
-            compatible = "zmk,behavior-input-processor";
-            #binding-cells = <0>;
-            processors = <&zip_sniper>;
-        };
+       
     };
 
     combos {
@@ -134,7 +125,7 @@
 
         // Layer 0: Mac 預設層
         default_layer {
-            label = "MAC";
+            display-name = "MAC";
             bindings = <
     &tog WIN  &kp Q        &kp W        &kp E        &kp R        &kp T     &kp Y   &kp U        &kp I        &kp O        &kp P           &none    
     &none     &hml LCTRL A &hml LALT S  &hml LCMD D  &hml LSHFT F &kp G     &kp H   &hmr RSHFT J &hmr RCMD K  &hmr RALT L  &hmr RCTRL SEMI &none    
@@ -145,7 +136,7 @@
 
         // Layer 1: Windows 預設層
         win_layer {
-            label = "WIN";
+            display-name = "WIN";
             bindings = <
     &tog WIN  &kp Q        &kp W        &kp E        &kp R        &kp T     &kp Y   &kp U        &kp I        &kp O        &kp P           &none    
     &none     &hml LGUI A  &hml LALT S  &hml LCTRL D &hml LSHFT F &kp G     &kp H   &hmr RSHFT J &hmr RCTRL K &hmr RALT L  &hmr RGUI SEMI  &none    
@@ -156,7 +147,7 @@
 
         // Layer 2: 數字層
         num_layer {
-            label = "NUMBER";
+            display-name = "NUMBER";
             bindings = <
     &none  &kp N1  &kp N2  &kp N3  &kp N4   &kp N5   &kp N6        &kp N7  &kp N8  &kp N9  &kp N0  &none     
     &none  &kp F1  &kp F2  &kp F3  &kp F4   &kp F5   &none         &kp N4  &kp N5  &kp N6  &none   &none     
@@ -167,7 +158,7 @@
 
         // Layer 3: Mac 符號與快捷鍵層
         symbol_layer {
-            label = "SYMBOL";
+            display-name = "SYMBOL";
             bindings = <
     &none  &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT   &kp CARET  &kp AMPS   &kp KP_MULTIPLY &kp LPAR  &kp RPAR  &none
     &none  &kp TILDE &kp GRAVE &trans    &trans    &trans      &kp BSLH   &kp MINUS  &kp EQUAL       &kp LBKT  &kp RBKT  &none
@@ -178,7 +169,7 @@
 
         // Layer 4: Windows 符號與快捷鍵層
         win_symbol_layer {
-            label = "WIN_SYM";
+            display-name = "WIN_SYM";
             bindings = <
     &none  &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT   &kp CARET  &kp AMPS   &kp KP_MULTIPLY &kp LPAR  &kp RPAR  &none
     &none  &kp TILDE &kp GRAVE &trans    &trans    &trans      &kp BSLH   &kp MINUS  &kp EQUAL       &kp LBKT  &kp RBKT  &none
@@ -189,7 +180,7 @@
 
         // Layer 5: 導航層
         nav_layer {
-            label = "NAV";
+            display-name = "NAV";
             bindings = <
     &trans  &trans             &trans    &trans  &trans  &trans  &kp C_VOL_UP   &kp PG_UP &kp UP    &kp PG_DN &trans  &trans    
     &trans  &trans             &trans    &trans  &trans  &trans  &kp C_VOL_DN   &kp LEFT  &kp DOWN  &kp RIGHT &trans  &trans    
@@ -200,29 +191,29 @@
 
         // Layer 6: Mac 滑鼠與截圖層（已移除藍牙控制）
         mouse_layer {
-            label = "MOUSE";
+            display-name = "MOUSE";
             bindings = <
     &none   &none         &none         &none         &none         &none           &none   &mkp LCLK       &mmv MOVE_UP    &mkp RCLK        &none   &none    
     &none   &none         &mkp LCLK     &mkp MCLK     &mkp RCLK     &none           &none   &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none   &none    
-    &none   &mmv_sniper   &none         &none         &none         &none           &none   &none           &mkp MCLK       &none            &none   &none    
+    &none   &none         &none         &none         &none         &none           &none   &none           &mkp MCLK       &none            &none   &none    
                                         &kp LS(LG(N4)) &kp LS(LG(N3)) &trans        &trans  &trans          &trans  
             >;
         };
 
         // Layer 7: Windows 滑鼠與截圖層（已移除藍牙控制）
         win_mouse_layer {
-            label = "WIN_MOUSE";
+            display-name = "WIN_MOUSE";
             bindings = <
     &none   &none         &none         &none         &none         &none           &none   &mkp LCLK       &mmv MOVE_UP    &mkp RCLK        &none   &none    
     &none   &none         &mkp LCLK     &mkp MCLK     &mkp RCLK     &none           &none   &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none   &none    
-    &none   &mmv_sniper   &none         &none         &none         &none           &none   &none           &mkp MCLK       &none            &none   &none    
+    &none   &none         &none         &none         &none         &none           &none   &none           &mkp MCLK       &none            &none   &none    
                                         &kp LG(LS(S)) &kp PSCRN     &trans          &trans  &trans          &trans  
             >;
         };
 
         // Layer 8: Tmux 共用層
         tmux_layer {
-            label = "TMUX";
+            display-name = "TMUX";
             bindings = <
     &none  &tmux_cmd N1   &tmux_cmd N2   &tmux_cmd N3  &tmux_cmd N4   &tmux_cmd N5   &tmux_cmd N6  &tmux_cmd N7    &tmux_cmd UP    &tmux_cmd N9     &tmux_cmd N0   &none
     &none  &tmux_cmd DQT  &tmux_cmd PRCNT&none         &none          &none          &none         &tmux_cmd LEFT  &tmux_cmd DOWN  &tmux_cmd RIGHT  &none          &none
@@ -233,7 +224,7 @@
 
         // Layer 9: 獨立系統/硬體管理層（同時按住左手 NUM + SYM 拇指鍵進入）
         sys_layer {
-            label = "SYS";
+            display-name = "SYS";
             bindings = <
     &bt BT_CLR   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &none  &none  &none  &none  &none  &none
     &none   &none         &none         &none         &none         &none           &none  &none  &none  &none  &none  &none
