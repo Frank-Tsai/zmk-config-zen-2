@@ -294,7 +294,7 @@
             bindings = <
     &trans  &trans             &trans    &trans  &trans  &trans  &trans   &kp PG_UP &kp UP    &kp PG_DN  &p4_macro  &trans    
     &trans  &trans             &trans    &trans  &trans  &trans  &trans   &kp LEFT  &kp DOWN  &kp RIGHT  &trans     &trans    
-    &trans  &trans             &trans    &trans  &trans  &trans  &trans   &kp HOME  &trans    &kp END    &trans     &trans    
+    &trans  &trans             &trans    &trans  &trans  &trans  &tog NAV   &kp HOME  &trans    &kp END    &trans     &trans    
             &kp LS(LG(SPACE))  &mo TMUX  &trans  &trans  &trans  &trans  
             >;
         };
@@ -303,9 +303,9 @@
         mouse_layer {
             display-name = "MOUSE";
             bindings = <
-    &none   &none         &none         &mkp MCLK     &none         &none           &none   &mkp LCLK          &mmv MOVE_UP    &mkp RCLK            &none   &none    
-    &none   &none         &mo SNIPER    &mkp LCLK     &mkp RCLK     &none           &none   &mmv MOVE_LEFT     &mmv MOVE_DOWN  &mmv MOVE_RIGHT      &none   &none    
-    &none   &none         &none         &none         &none         &none           &none   &msc_slow SCRL_UP  &mkp MCLK       &msc_slow SCRL_DOWN  &none   &none    
+    &none   &none         &none         &mkp MCLK     &none         &none           &none        &mkp LCLK          &mmv MOVE_UP    &mkp RCLK            &none   &none    
+    &none   &none         &mo SNIPER    &mkp LCLK     &mkp RCLK     &none           &none        &mmv MOVE_LEFT     &mmv MOVE_DOWN  &mmv MOVE_RIGHT      &none   &none    
+    &none   &none         &none         &none         &none         &none           &tog MOUSE   &msc_slow SCRL_UP  &mkp MCLK       &msc_slow SCRL_DOWN  &none   &none    
                                         &kp LS(LG(N4)) &kp LS(LG(N3)) &trans        &trans  &trans          &trans  
             >;
         };
@@ -314,9 +314,9 @@
         win_mouse_layer {
             display-name = "WIN_MOUSE";
             bindings = <
-    &none   &none         &none         &mkp MCLK     &none         &none           &none   &mkp LCLK          &mmv MOVE_UP    &mkp RCLK            &none   &none    
-    &none   &none         &mo SNIPER    &mkp LCLK     &mkp RCLK     &none           &none   &mmv MOVE_LEFT     &mmv MOVE_DOWN  &mmv MOVE_RIGHT      &none   &none    
-    &none   &none         &none         &none         &none         &none           &none   &msc_slow SCRL_UP  &mkp MCLK       &msc_slow SCRL_DOWN  &none   &none    
+    &none   &none         &none         &mkp MCLK     &none         &none           &none        &mkp LCLK          &mmv MOVE_UP    &mkp RCLK            &none   &none    
+    &none   &none         &mo SNIPER    &mkp LCLK     &mkp RCLK     &none           &none        &mmv MOVE_LEFT     &mmv MOVE_DOWN  &mmv MOVE_RIGHT      &none   &none    
+    &none   &none         &none         &none         &none         &none           &tog WIN_MOUSE   &msc_slow SCRL_UP  &mkp MCLK       &msc_slow SCRL_DOWN  &none   &none    
                                         &kp LG(LS(S)) &kp PSCRN     &trans          &trans  &trans          &trans  
             >;
         };
