@@ -237,9 +237,9 @@
         default_layer {
             display-name = "MAC";
             bindings = <
-    &tog WIN  &kp Q        &kp W        &kp E        &kp R        &kp T     &kp Y   &kp U        &kp I        &kp O        &kp P           &kp C_VOL_UP    
-    &none     &hml LCTRL A &hml LALT S  &hml LCMD D  &hml LSHFT F &kp G     &kp H   &hmr RSHFT J &hmr RCMD K  &hmr RALT L  &hmr RCTRL SEMI &kp C_VOL_DN    
-    &none     &kp Z        &kp X        &kp C        &kp V        &kp B     &kp N   &kp M        &kp COMMA    &kp DOT      &kp FSLH        &kp C_MUTE    
+    &mt ESC TAB     &kp Q        &kp W        &kp E        &kp R        &kp T     &kp Y   &kp U        &kp I        &kp O        &kp P           &kp BACKSPACE    
+    &kp LCMD        &hml LCTRL A &hml LALT S  &hml LCMD D  &hml LSHFT F &kp G     &kp H   &hmr RSHFT J &hmr RCMD K  &hmr RALT L  &hmr RCTRL SEMI &kp DEL    
+    &kp LSHFT       &kp Z        &kp X        &kp C        &kp V        &kp B     &kp N   &kp M        &kp COMMA    &kp DOT      &kp FSLH        &none  
                                         &lt_num_td NUM 0 &lt SYM TAB  &kp SPACE    &kp RET &lt NAV BACKSPACE         &lt MOUSE ESC   
             >;
         };
@@ -248,9 +248,9 @@
         win_layer {
             display-name = "WIN";
             bindings = <
-    &tog WIN  &kp Q        &kp W        &kp E        &kp R        &kp T     &kp Y   &kp U        &kp I        &kp O        &kp P           &none    
-    &none     &hml LGUI A  &hml LALT S  &hml LCTRL D &hml LSHFT F &kp G     &kp H   &hmr RSHFT J &hmr RCTRL K &hmr RALT L  &hmr RGUI SEMI  &none    
-    &none     &kp Z        &kp X        &kp C        &kp V        &kp B     &kp N   &kp M        &kp COMMA    &kp DOT      &kp FSLH        &none    
+    &mt ESC TAB   &kp Q        &kp W        &kp E        &kp R        &kp T     &kp Y   &kp U        &kp I        &kp O        &kp P           &kp BACKSPACE  
+    &kp LCTRL     &hml LGUI A  &hml LALT S  &hml LCTRL D &hml LSHFT F &kp G     &kp H   &hmr RSHFT J &hmr RCTRL K &hmr RALT L  &hmr RGUI SEMI  &kp DEL    
+    &kp LSHFT     &kp Z        &kp X        &kp C        &kp V        &kp B     &kp N   &kp M        &kp COMMA    &kp DOT      &kp FSLH        &none    
                                         &lt_num_td NUM 0 &lt WIN_SYM TAB &kp SPACE    &kp RET &lt NAV BACKSPACE      &lt WIN_MOUSE ESC   
             >;
         };
@@ -259,9 +259,9 @@
         num_layer {
             display-name = "NUMBER";
             bindings = <
-    &none  &kp F1   &kp F2   &kp F3   &kp F4    &kp F5         &kp KP_PLUS         &kp N7  &kp N8  &kp N9  &none  &none     
-    &none  &kp F6   &kp F7   &kp F8   &kp F9    &kp F10        &kp KP_MINUS        &kp N4  &kp N5  &kp N6  &none   &none     
-    &none  &kp F11  &kp F12  &none    &none     &none          &kp KP_MULTIPLY     &kp N1  &kp N2  &kp N3  &none   &none
+    &trans  &kp F1   &kp F2   &kp F3   &kp F4    &kp F5         &kp KP_PLUS         &kp N7  &kp N8  &kp N9  &trans   &trans     
+    &trans  &kp F6   &kp F7   &kp F8   &kp F9    &kp F10        &kp KP_MINUS        &kp N4  &kp N5  &kp N6  &trans   &trans     
+    &trans  &kp F11  &kp F12  &trans   &trans    &trans         &kp KP_MULTIPLY     &kp N1  &kp N2  &kp N3  &trans   &trans
                            &trans  &trans  &tog NUM            &kp KP_DIVIDE       &kp DEL &kp N0  
             >;
         };
@@ -270,9 +270,9 @@
         symbol_layer {
             display-name = "SYMBOL";
             bindings = <
-    &none  &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT   &kp CARET  &kp AMPS   &kp STAR        &kp LPAR  &kp RPAR  &none
-    &none  &kp TILDE &kp GRAVE &trans    &trans    &trans      &kp BSLH   &kp MINUS  &kp EQUAL       &kp LBKT  &kp RBKT  &none
-    &none  &kp LG(Z) &kp LG(X) &kp LG(C) &kp LG(V) &kp LG(Y)   &kp PIPE   &kp UNDER  &kp PLUS        &kp LBRC  &kp RBRC  &none
+    &none  &kp EXCL  &kp AT    &kp HASH  &kp DLLR  &kp PRCNT       &kp CARET  &kp AMPS   &kp STAR        &kp LPAR  &kp RPAR  &none
+    &none  &kp TILDE &kp GRAVE &trans    &trans    &trans          &kp BSLH   &kp MINUS  &kp EQUAL       &kp LBKT  &kp RBKT  &none
+    &none  &kp LG(Z) &kp LG(X) &kp LG(C) &kp LG(V) &kp LG(LS(Z))   &kp PIPE   &kp UNDER  &kp PLUS        &kp LBRC  &kp RBRC  &none
                                &mo SYS     &trans    &none       &kp BSPC   &kp DQT    &kp SQT
             >;
         };
@@ -292,10 +292,10 @@
         nav_layer {
             display-name = "NAV";
             bindings = <
-    &trans  &trans             &trans    &trans  &trans  &trans  &trans   &kp PG_UP &kp UP    &kp PG_DN  &p4_macro  &trans    
-    &trans  &trans             &trans    &trans  &trans  &trans  &trans   &kp LEFT  &kp DOWN  &kp RIGHT  &trans     &trans    
+    &trans  &trans             &trans    &trans  &trans  &trans  &trans     &kp PG_UP &kp UP    &kp PG_DN  &p4_macro  &trans    
+    &trans  &trans             &trans    &trans  &trans  &trans  &trans     &kp LEFT  &kp DOWN  &kp RIGHT  &trans     &trans    
     &trans  &trans             &trans    &trans  &trans  &trans  &tog NAV   &kp HOME  &trans    &kp END    &trans     &trans    
-            &kp LS(LG(SPACE))  &mo TMUX  &trans  &trans  &trans  &trans  
+            &kp LS(LG(J))  &mo TMUX  &kp LS(LG(SPACE))  &trans  &trans  &trans  
             >;
         };
 
@@ -303,9 +303,9 @@
         mouse_layer {
             display-name = "MOUSE";
             bindings = <
-    &none   &none         &none         &mkp MCLK     &none         &none           &none        &mkp LCLK          &mmv MOVE_UP    &mkp RCLK            &none   &none    
-    &none   &none         &mo SNIPER    &mkp LCLK     &mkp RCLK     &none           &none        &mmv MOVE_LEFT     &mmv MOVE_DOWN  &mmv MOVE_RIGHT      &none   &none    
-    &none   &none         &none         &none         &none         &none           &tog MOUSE   &msc_slow SCRL_UP  &mkp MCLK       &msc_slow SCRL_DOWN  &none   &none    
+    &none   &none         &none         &mkp MCLK     &none         &none           &none        &mkp LCLK          &mmv MOVE_UP    &mkp RCLK            &none               &none    
+    &none   &none         &mo SNIPER    &mkp LCLK     &mkp RCLK     &none           &none        &mmv MOVE_LEFT     &mmv MOVE_DOWN  &mmv MOVE_RIGHT      &msc_slow SCRL_UP   &none    
+    &none   &kp LG(Z)     &kp LG(X)     &kp LG(C)     &kp LG(V)     &kp LG(LS(Z))   &tog MOUSE   &none              &mkp MCLK       &none                &msc_slow SCRL_DOWN &none    
                                         &kp LS(LG(N4)) &kp LS(LG(N3)) &trans        &trans  &trans          &trans  
             >;
         };
@@ -314,9 +314,9 @@
         win_mouse_layer {
             display-name = "WIN_MOUSE";
             bindings = <
-    &none   &none         &none         &mkp MCLK     &none         &none           &none        &mkp LCLK          &mmv MOVE_UP    &mkp RCLK            &none   &none    
-    &none   &none         &mo SNIPER    &mkp LCLK     &mkp RCLK     &none           &none        &mmv MOVE_LEFT     &mmv MOVE_DOWN  &mmv MOVE_RIGHT      &none   &none    
-    &none   &none         &none         &none         &none         &none           &tog WIN_MOUSE   &msc_slow SCRL_UP  &mkp MCLK       &msc_slow SCRL_DOWN  &none   &none    
+    &none   &none         &none         &mkp MCLK     &none         &none           &none            &mkp LCLK          &mmv MOVE_UP    &mkp RCLK            &none               &none    
+    &none   &none         &mo SNIPER    &mkp LCLK     &mkp RCLK     &none           &none            &mmv MOVE_LEFT     &mmv MOVE_DOWN  &mmv MOVE_RIGHT      &msc_slow SCRL_UP   &none    
+    &none   &kp LC(Z)     &kp LC(X)     &kp LC(C)     &kp LC(V)     &kp LC(Y)       &tog WIN_MOUSE   &none              &mkp MCLK       &none                &msc_slow SCRL_DOWN  &none    
                                         &kp LG(LS(S)) &kp PSCRN     &trans          &trans  &trans          &trans  
             >;
         };
